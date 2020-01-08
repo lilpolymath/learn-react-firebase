@@ -78,7 +78,7 @@ class SignUpFormBase extends Component {
           onChange={this.onChange}
           placeholder='Confirm Password'
         />
-        <button isDisabled={isInvalid} type='submit'>
+        <button disabled={isInvalid} type='submit'>
           Submit
         </button>
         {error && <p>{error.message}</p>}
