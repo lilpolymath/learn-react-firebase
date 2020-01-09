@@ -12,11 +12,17 @@ import SignUpPage from '../SignUp';
 import * as ROUTES from '../../constants/routes';
 
 export class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      authUser: null,
+    };
+  }
   render() {
     return (
       <Router>
-        <div>
-          <Navigation />
+        <div className='header'>
+          <Navigation authUser={this.state.authUser} />
           <hr />
           <Route path={ROUTES.ACCOUNT} component={AccountPage} />
           <Route path={ROUTES.HOME} component={HomePage} />
