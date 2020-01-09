@@ -15,22 +15,20 @@ const firebaseConfig = {
 class Firebase {
   constructor() {
     firebase.initializeApp(firebaseConfig);
-    this.auth = firebase.auth;
+    this.auth = firebase.auth();
   }
 
-  doCreateUserWithEmailAndPassword = (email, password) => {
+  doCreateUserWithEmailAndPassword = (email, password) =>
     this.auth.createUserWithEmailAndPassword(email, password);
-  };
 
-  doSignInWithEmailAndPassword = (email, password) => {
+  doSignInWithEmailAndPassword = (email, password) =>
     this.auth.signInWithEmailAndPassword(email, password);
-  };
 
   doSignOut = () => this.auth.signOut();
 
   doPasswordReset = email => this.auth.sendPasswordResetEmail(email);
 
-  doPasswordUpdate = password => this.auth.updatePassword(password);
+  doPasswordUpdate = password => this.auth.currentUser.updatePassword(password);
 }
 
 export default Firebase;
