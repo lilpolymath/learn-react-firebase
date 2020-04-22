@@ -31,6 +31,7 @@ const AuthNavigation = () => (
     </ul>
   </div>
 );
+
 const NonAuthNavigation = () => (
   <div>
     <ul>
